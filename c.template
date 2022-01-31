@@ -1,0 +1,113 @@
+#include "lv2/lv2plug.in/ns/lv2core/lv2.h"
+
+#define PLUG_URI "http://pplug.in/<<PlugName>>"
+#define DB_CO(g) ((g) > -90.f ? powf(10.0f, (g)*0.05f) : 0.0f)
+
+//----------------------------------------------
+// define port numbers for connect_port()
+// ---------------------------------------------
+typedef enum {
+  <++>
+} PortIndex;
+
+//----------------------------------------------
+//  struct for all of the plugin's state and
+//  properties
+//  --------------------------------------------
+typedef struct {
+  <++>
+} <<PlugName>>;
+
+//----------------------------------------------
+//  allocates any resources for plugin
+//  *any* resources required by plugin MUST
+//  be allocated here as run() cannot make calls
+//  to Operating System for more memory
+//----------------------------------------------
+static LV2_Handle instantiate(const LV2_Descriptor* desc,
+            double rate, const char* bundle_path,
+            const LV2_Feature* const* features) {
+
+  <<PlugName>>* instance = (<<PlugName>>*)calloc(1, sizeof(<<PlugName>>));
+  <++>
+  return (LV2_Handle)instance;
+}
+
+
+//-----------------------------------------------
+//  connects port to particular buffer
+//  must store data location
+//  can't be accessed anywhere except run()
+//-----------------------------------------------
+static void
+connect_port(LV2_Handle instance, uint32_t port,
+             void* data)
+{
+  <<PlugName>>* self  = (<<PlugName>>*)instance;
+
+  switch ((PortIndex)port) {
+    <++>
+  }
+}
+
+//-----------------------------------------------
+//  reinitialises state when plugin is
+//  (re)activated. means that effects don't persist
+//  after plugin has been deactivated
+//-----------------------------------------------
+static void activate(LV2_Handle instance)
+{
+    <<PlugName>>* self = (<<PlugName>>*) instance;
+}
+
+//------------------------------------------------
+//  main part of plugin. where signal processing
+//  is done and effects are applied
+//------------------------------------------------
+static void run(LV2_Handle instance, uint32_t n_samples)
+{
+    <<PlugName>>* self = (<<PlugName>>*)instance;    
+}
+
+//-----------------------------------------------
+//  unsure, never had to worry about it
+//-----------------------------------------------
+static void deactivate(LV2_Handle instance){
+}
+
+//-----------------------------------------------
+//  deallocate memory when plugin is destroyed
+//-----------------------------------------------
+static void cleanup(LV2_Handle instance)
+{
+    <<PlugName>>* self = (<<PlugName>>*)instance;    
+    <++>
+    free(instance);
+}
+
+//-----------------------------------------------
+static const void* extension_data(const char* uri)
+{
+    return NULL;
+}
+//-----------------------------------------------
+static const LV2_Descriptor descriptor = {
+    PLUG_URI,
+    instantiate,
+    connect_port,
+    activate,
+    run,
+    deactivate,
+    cleanup,
+    extension_data
+};
+//-----------------------------------------------
+LV2_SYMBOL_EXPORT
+const LV2_Descriptor*
+lv2_descriptor(uint32_t index)
+{
+    switch (index) {
+    case 0: return &descriptor;
+    default: return NULL;
+    }
+}

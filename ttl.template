@@ -1,0 +1,24 @@
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+
+<http://example.org/pPlugin/<<PlugName>>>
+  a lv2:Plugin ;
+  doap:name "<<PlugName>>" ;
+    doap:license <http://opensource.org/licenses/isc> ;
+    lv2:optionalFeature: lv2:hardRTCapable ;
+    lv2:port [
+        a lv2:AudioPort ,
+            lv2:InputPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "In"
+    ] , [
+     <++>  //add new ports here
+    ] .
+
+
+
+
