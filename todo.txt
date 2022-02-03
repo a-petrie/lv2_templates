@@ -1,1 +1,0 @@
-need to figure out how to call this globally, and have templates moved to directory script was invoked

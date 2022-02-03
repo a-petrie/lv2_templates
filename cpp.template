@@ -1,0 +1,22 @@
+#include <lv2plugin.hpp>
+#define PLUG_URI "http://pplug.in/<<PlugName>>"
+using namespace LV2
+
+typedef enum {
+  <++>
+} PortIndex;
+
+class <<PlugName>> : public Plugin<<<PlugName>>> {
+
+public:
+  
+  <<PlugName>>(double rate) : Plugin<<<PlugName>>> {
+
+  }
+
+  void run(uint32_t n_samples) {
+
+  }
+}
+
+static int _ = <<PlugName>>::register_class(PLUG_URI);

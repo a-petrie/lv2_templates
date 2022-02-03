@@ -33,15 +33,13 @@ static LV2_Handle instantiate(const LV2_Descriptor* desc,
   return (LV2_Handle)instance;
 }
 
-
 //-----------------------------------------------
 //  connects port to particular buffer
 //  must store data location
 //  can't be accessed anywhere except run()
 //-----------------------------------------------
 static void
-connect_port(LV2_Handle instance, uint32_t port,
-             void* data)
+connect_port(LV2_Handle instance, uint32_t port, void* data)
 {
   <<PlugName>>* self  = (<<PlugName>>*)instance;
 

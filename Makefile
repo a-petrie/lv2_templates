@@ -1,3 +1,4 @@
+CXX = <<Compiler>>
 BUNDLE = "<<PlugName>>.lv2"
 INSTALL_DIR = /usr/lib/lv2/
 BUILD_DIR=../build/$(BUNDLE)
@@ -9,8 +10,8 @@ $(BUNDLE): manifest.ttl <<PlugName>>.ttl <<PlugName>>.so
 	rm <<PlugName>>.so
 
 <<PlugName>>.so: <<PlugName>>.c
-	gcc -c -g -fpic <<PlugName>>.c
-	gcc -shared -o <<PlugName>>.so <<PlugName>>.o
+	$(CXX) -c -g -fpic <<PlugName>>.c
+	$(CXX) -shared -o <<PlugName>>.so <<PlugName>>.o
 	rm <<PlugName>>.o
 
 install:
