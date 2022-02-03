@@ -11,6 +11,8 @@ fi
 
 targetDir=`pwd`/
 
+echo "Creating plugin " $1
+
 # make sure we're in the dir where template is
 cd ~/code/templates/lv2/
 
